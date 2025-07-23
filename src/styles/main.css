@@ -1,0 +1,101 @@
+/* IMPORTA O RESET CSS */
+@import url('./reset.css');
+
+/* IMPORTA A FONTE DO GOOGLE */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');
+
+* {
+   font-size: 16px;
+   font-family: monospace;
+}
+
+body {
+   background-image: url(../images/bg.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   user-select: none;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 30px;
+   background: linear-gradient(325deg,
+         #39393f 0%,
+         #3838ec 50%,
+         #3e2eed 100%);
+   padding: 40px 60px;
+}
+
+h2 {
+   font-size: 2.3rem;
+   color: #fff;
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+}
+
+.reset {
+   padding: 15px 20px;
+   width: 100%;
+   color: #000;
+   background-color: #fff;
+   font-size: 1.5rem;
+   letter-spacing: 0.1rem;
+   text-transform: uppercase;
+   cursor: pointer;
+   font-weight: 600;
+}
+
+.reset:focus {
+   color: #00BFFF;
+   background-color: #262809;
+}
+
+.game {
+   width: 430px;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   transform-style: preserve-3d;
+   perspective: 500px;
+}
+
+.item {
+   background-color: #fff;
+   position: relative;
+   width: 100px;
+   height: 100px;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   font-size: 3rem;
+   transform: rotateY(180deg);
+   transition: 0.5s;
+}
+
+.item::after {
+   content: "";
+   background-color: #404040;
+   position: absolute;
+   inset: 0;
+   transition: 0.5s;
+   transform: rotatey(0deg);
+}
+
+.item.boxOpen,
+.item.boxMatch {
+   transform: rotateY(0deg);
+}
+
+.boxOpen::after,
+.boxMatch::after {
+   transform: rotateY(90deg);
+}
